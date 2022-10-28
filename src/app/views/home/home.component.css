@@ -1,0 +1,13 @@
+.home .title {
+	font-size: 3rem;
+	font-weight: 300;
+	line-height: 1.2;
+	text-align: center;
+	color: blueviolet;
+}
+
+.home .subtitle {
+	font-size: 1.1rem;
+	text-align: center;
+	color: blueviolet;
+}

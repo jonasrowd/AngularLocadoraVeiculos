@@ -1,0 +1,43 @@
+<mat-card>
+	<mat-card-title>
+		Cadastrar Cliente
+	</mat-card-title>
+	<form>
+		<mat-form-field>
+			<input matInput placeholder="Nome" [(ngModel)]="cliente.nome" name="nome">
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput placeholder="Identificação" [(ngModel)]="cliente.identificacao" name="identificacao">
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput placeholder="Tipo" [(ngModel)]="cliente.tipo" name="tipo">
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput placeholder="Habilitação" [(ngModel)]="cliente.habilitacao" name="habilitacao">
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput placeholder="Cep" [(ngModel)]="cliente.cep" name="cep">
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput placeholder="Endereço" [(ngModel)]="cliente.endereco" name="endereco">
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput placeholder="Complemento" [(ngModel)]="cliente.complemento" name="complemento">
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput placeholder="Cidade" [(ngModel)]="cliente.cidade" name="cidade">
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput placeholder="Estado" [(ngModel)]="cliente.estado" name="estado">
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput placeholder="País" [(ngModel)]="cliente.pais" name="pais">
+		</mat-form-field>
+	</form>
+	<button mat-raised-button (click)="criaCliente()" color="primary">
+		Salvar
+	</button>
+	<button mat-raised-button (click)="cancel()">
+		Cancelar
+	</button>
+</mat-card>

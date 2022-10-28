@@ -1,0 +1,28 @@
+<mat-card>
+	<mat-card-title>
+		Novo Carro
+	</mat-card-title>
+	<form>
+		<mat-form-field>
+			<input matInput placeholder="Marca" [(ngModel)]="car.marca" name="marca">
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput placeholder="Modelo" [(ngModel)]="car.modelo" name="modelo">
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput placeholder="Ano" [(ngModel)]="car.ano" name="ano">
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput placeholder="Diária (R$)" [(ngModel)]="car.diaria" name="diaria">
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput placeholder="Categoria" [(ngModel)]="car.categoria" name="categoria">
+		</mat-form-field>
+	</form>
+	<button mat-raised-button (click)="createCars()" color="primary">
+		Salvar
+	</button>
+	<button mat-raised-button (click)="cancel()">
+		Cancelar
+	</button>
+</mat-card>
