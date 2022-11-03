@@ -26,14 +26,16 @@ import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatSortModule } from "@angular/material/sort";
 import localePt from "@angular/common/locales/pt";
 import { registerLocaleData } from "@angular/common";
-import { CarsDevolucaoComponent } from './components/cars/cars-devolucao/cars-devolucao.component';
-import { CarsAlteracaoComponent } from './components/cars/cars-alteracao/cars-alteracao.component';
-import { CarsDeleteComponent } from './components/cars/cars-delete/cars-delete.component';
-import { CarsCarrinhoComponent } from './components/cars/cars-devolucao/cars-carrinho/cars-carrinho.component';
-import { ClientComponent } from './views/client/client.component';
-import { ClientsReadComponent } from './components/clients/clients-read/clients-read.component';
-import { ClientsCriarComponent } from './components/clients/clients-criar/clients-criar.component';
-import { LoginComponent } from './components/login/login.component';
+import { CarsDevolucaoComponent } from "./components/cars/cars-devolucao/cars-devolucao.component";
+import { CarsAlteracaoComponent } from "./components/cars/cars-alteracao/cars-alteracao.component";
+import { CarsDeleteComponent } from "./components/cars/cars-delete/cars-delete.component";
+import { CarsCarrinhoComponent } from "./components/cars/cars-devolucao/cars-carrinho/cars-carrinho.component";
+import { ClientComponent } from "./views/client/client.component";
+import { ClientsReadComponent } from "./components/clients/clients-read/clients-read.component";
+import { ClientsCriarComponent } from "./components/clients/clients-criar/clients-criar.component";
+import { ClientsAlugarComponent } from "./components/clients/clients-alugar/clients-alugar.component";
+import { MatSelectModule } from '@angular/material/select';
+import { ReactiveFormsModule } from '@angular/forms';
 
 registerLocaleData(localePt);
 
@@ -55,7 +57,7 @@ registerLocaleData(localePt);
     ClientComponent,
     ClientsReadComponent,
     ClientsCriarComponent,
-    LoginComponent
+    ClientsAlugarComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +75,9 @@ registerLocaleData(localePt);
     MatInputModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
@@ -83,4 +87,4 @@ registerLocaleData(localePt);
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

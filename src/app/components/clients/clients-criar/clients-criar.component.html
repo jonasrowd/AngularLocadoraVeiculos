@@ -1,43 +1,32 @@
-<mat-card>
-	<mat-card-title>
-		Cadastrar Cliente
-	</mat-card-title>
-	<form>
-		<mat-form-field>
-			<input matInput placeholder="Nome" [(ngModel)]="cliente.nome" name="nome">
-		</mat-form-field>
-		<mat-form-field>
-			<input matInput placeholder="Identificação" [(ngModel)]="cliente.identificacao" name="identificacao">
-		</mat-form-field>
-		<mat-form-field>
-			<input matInput placeholder="Tipo" [(ngModel)]="cliente.tipo" name="tipo">
-		</mat-form-field>
-		<mat-form-field>
-			<input matInput placeholder="Habilitação" [(ngModel)]="cliente.habilitacao" name="habilitacao">
-		</mat-form-field>
-		<mat-form-field>
-			<input matInput placeholder="Cep" [(ngModel)]="cliente.cep" name="cep">
-		</mat-form-field>
-		<mat-form-field>
-			<input matInput placeholder="Endereço" [(ngModel)]="cliente.endereco" name="endereco">
-		</mat-form-field>
-		<mat-form-field>
-			<input matInput placeholder="Complemento" [(ngModel)]="cliente.complemento" name="complemento">
-		</mat-form-field>
-		<mat-form-field>
-			<input matInput placeholder="Cidade" [(ngModel)]="cliente.cidade" name="cidade">
-		</mat-form-field>
-		<mat-form-field>
-			<input matInput placeholder="Estado" [(ngModel)]="cliente.estado" name="estado">
-		</mat-form-field>
-		<mat-form-field>
-			<input matInput placeholder="País" [(ngModel)]="cliente.pais" name="pais">
-		</mat-form-field>
-	</form>
-	<button mat-raised-button (click)="criaCliente()" color="primary">
-		Salvar
-	</button>
-	<button mat-raised-button (click)="cancel()">
-		Cancelar
-	</button>
-</mat-card>
+<form class="cep-form" [formGroup]="cepForm">
+	<div class="fields">
+	<h4 class="descricao">
+		Cadastro de Clientes
+	</h4>
+
+	<mat-form-field appearance="outline">
+		<mat-label>CEP</mat-label>
+		<input matInput type="text" [formControlName]="'valorCEP'" maxlength="8" autoFocus required (input)="searchCep()" />
+		<mat-error *ngIf="cepForm.get('valorCEP')?.errors?.['required']">
+		O campo CEP é obrigatório.
+		</mat-error>
+	</mat-form-field>
+	<mat-form-field appearance="outline">
+		<mat-label>Endereço</mat-label>
+		<input matInput type="text" readonly [formControlName]="'address'" [value]="address" [(ngModel)]="address" 	/>
+	</mat-form-field>
+	<mat-form-field appearance="outline">
+		<mat-label>Bairro</mat-label>
+		<input matInput readonly [formControlName]="'district'" [value]="district" [(ngModel)]="district"  />
+	</mat-form-field>
+	<mat-form-field appearance="outline">
+		<mat-label>Cidade</mat-label>
+		<input matInput readonly [formControlName]="'city'" [value]="city" [(ngModel)]="city" />
+	</mat-form-field>
+	<mat-form-field appearance="outline">
+		<mat-label>Estado</mat-label>
+		<input matInput readonly [formControlName]="'state'" [value]="state" [(ngModel)]="state" />
+	</mat-form-field>
+	<button (click)="searchCep()">Buscar</button>
+	</div>
+</form>

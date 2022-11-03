@@ -24,6 +24,10 @@ export class ClientComponent implements OnInit {
     this.router.navigate(['/clientes/criar'])
   }
 
+  navigateToClientsAluguel(): void {
+    this.router.navigate(['clientes/alugar'])
+  }
+
   impress(): void {
     
   }

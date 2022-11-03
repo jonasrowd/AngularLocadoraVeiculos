@@ -1,6 +1,6 @@
-import { LoginComponent } from './components/login/login.component';
-import { ClientsCriarComponent } from './components/clients/clients-criar/clients-criar.component';
-import { ClientsReadComponent } from './components/clients/clients-read/clients-read.component';
+import { ClientsAlugarComponent } from "./components/clients/clients-alugar/clients-alugar.component";
+import { ClientsCriarComponent } from "./components/clients/clients-criar/clients-criar.component";
+import { ClientsReadComponent } from "./components/clients/clients-read/clients-read.component";
 import { ClientComponent } from "./views/client/client.component";
 import { CarsCarrinhoComponent } from "./components/cars/cars-devolucao/cars-carrinho/cars-carrinho.component";
 import { CarsDeleteComponent } from "./components/cars/cars-delete/cars-delete.component";
@@ -51,8 +51,8 @@ const routes: Routes = [
     component: ClientsCriarComponent,
   },
   {
-    path: "login",
-    component: LoginComponent,
+    path: "clientes/alugar",
+    component: ClientsAlugarComponent,
   }
 ];
 
