@@ -5,13 +5,13 @@ import { ClientsService } from '../clients.service';
 @Component({
   selector: 'locadora-clients-read',
   templateUrl: './clients-read.component.html',
-  styleUrls: ['./clients-read.component.css']
+  styleUrls: ['./clients-read.component.scss']
 })
 export class ClientsReadComponent implements OnInit {
 
   clientes: Clientes[] = []
 
-  displayedColumns = ['nome','identificacao','tipo','habilitacao','cep','endereco','complemento','cidade','estado','pais', 'action', 'excluir']
+  displayedColumns = ['nome','telefone','dataCEP','address','district','state','city','action', 'excluir']
 
   constructor(private clientsService: ClientsService) {}
 

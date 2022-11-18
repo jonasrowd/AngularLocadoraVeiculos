@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'locadora-cars-read',
   templateUrl: './cars-read.component.html',
-  styleUrls: ['./cars-read.component.css']
+  styleUrls: ['./cars-read.component.scss']
 })
 export class CarsReadComponent implements OnInit {
 

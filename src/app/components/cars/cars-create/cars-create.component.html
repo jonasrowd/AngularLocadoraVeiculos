@@ -2,24 +2,24 @@
 	<mat-card-title>
 		Novo Carro
 	</mat-card-title>
-	<form>
+	<form #cform="ngForm">
 		<mat-form-field>
-			<input matInput placeholder="Marca" [(ngModel)]="car.marca" name="marca">
+			<input matInput placeholder="Marca" [(ngModel)]="car.marca" name="marca" required>
 		</mat-form-field>
 		<mat-form-field>
-			<input matInput placeholder="Modelo" [(ngModel)]="car.modelo" name="modelo">
+			<input matInput placeholder="Modelo" [(ngModel)]="car.modelo" name="modelo" required>
 		</mat-form-field>
 		<mat-form-field>
-			<input matInput placeholder="Ano" [(ngModel)]="car.ano" name="ano">
+			<input matInput placeholder="Ano" [(ngModel)]="car.ano" name="ano" required>
 		</mat-form-field>
 		<mat-form-field>
-			<input matInput placeholder="Diária (R$)" [(ngModel)]="car.diaria" name="diaria">
+			<input matInput placeholder="Diária (R$)" [(ngModel)]="car.diaria" name="diaria" required>
 		</mat-form-field>
 		<mat-form-field>
-			<input matInput placeholder="Categoria" [(ngModel)]="car.categoria" name="categoria">
+			<input matInput placeholder="Categoria" [(ngModel)]="car.categoria" name="categoria" required>
 		</mat-form-field>
 	</form>
-	<button mat-raised-button (click)="createCars()" color="primary">
+	<button mat-raised-button (click)="createCars()" color="primary" [disabled]="cform.invalid">
 		Salvar
 	</button>
 	<button mat-raised-button (click)="cancel()">

@@ -1,6 +1,4 @@
-import { ClientsAlugarComponent } from "./components/clients/clients-alugar/clients-alugar.component";
 import { ClientsCriarComponent } from "./components/clients/clients-criar/clients-criar.component";
-import { ClientsReadComponent } from "./components/clients/clients-read/clients-read.component";
 import { ClientComponent } from "./views/client/client.component";
 import { CarsCarrinhoComponent } from "./components/cars/cars-devolucao/cars-carrinho/cars-carrinho.component";
 import { CarsDeleteComponent } from "./components/cars/cars-delete/cars-delete.component";
@@ -49,10 +47,6 @@ const routes: Routes = [
   {
     path: "clientes/criar",
     component: ClientsCriarComponent,
-  },
-  {
-    path: "clientes/alugar",
-    component: ClientsAlugarComponent,
   }
 ];
 

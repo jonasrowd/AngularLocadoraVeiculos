@@ -2,7 +2,7 @@ import { EMPTY, Observable } from "rxjs";
 import { Clientes } from "./clientes.model";
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from "@angular/material/snack-bar";
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { catchError, map, tap } from "rxjs/operators";
 
 @Injectable({
@@ -10,7 +10,6 @@ import { catchError, map, tap } from "rxjs/operators";
 })
 export class ClientsService {
   baseClientesUrl = "http://localhost:4202/clientes";
-  baseCepUrl = "https://viacep.com.br/ws"
 
   private baseURL: string = 'https://cep.awesomeapi.com.br/';
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
@@ -42,11 +41,6 @@ export class ClientsService {
 
   criacaoClientes(cliente: Clientes): Observable<Clientes> {
     return this._httpClient.post<Clientes>(this.baseClientesUrl, cliente)
-  }
-
-  buscarCep(cep:String) {
-    const url = `${this.baseCepUrl}/${cep}/json`; 
-    return this._httpClient.get(url)
   }
 
   public searchCEP(cep: string): Observable<any> {
@@ -84,5 +78,26 @@ export class ClientsService {
       panelClass: ['mat-toolbar', 'mat-warn']
     });
   }
+
+    /** POST: add a new hero to the database */
+    submitCliente(cliente: Clientes): Observable<Clientes> {
+      const httpOptions = {
+        headers: new HttpHeaders({
+          "Content-Type": "application/json",
+        }),
+      };
+  
+      return this._httpClient
+        .post<Clientes>(this.baseClientesUrl, cliente, httpOptions);
+    }
+
+    showMessage(msg: string, isError: boolean = false): void {
+      this._snackBar.open(msg, "Close", {
+        duration: 3000,
+        horizontalPosition: "right",
+        verticalPosition: "top",
+        panelClass: isError ? ["msg-error"] : ["msg-success"],
+      });
+    }
 
 }

@@ -1,21 +1,15 @@
-import { HeaderService } from './../../components/template/header/header.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'locadora-cars',
   templateUrl: './cars.component.html',
-  styleUrls: ['./cars.component.css']
+  styleUrls: ['./cars.component.scss']
 })
 export class CarsComponent implements OnInit {
 
-  constructor(private router: Router, private headerService: HeaderService) {
-    headerService.headerData = {
-      title: "Cadastro de Veículos",
-      icon: "storefront",
-      routeUrl: '/cars'
-    }
-  }
+  constructor(private router: Router) {}
+
 
   ngOnInit(): void {
   }

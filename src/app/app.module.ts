@@ -1,4 +1,3 @@
-import { BaseURL } from './shared/baseurl';
 import { NgModule, LOCALE_ID } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
@@ -34,7 +33,6 @@ import { CarsCarrinhoComponent } from "./components/cars/cars-devolucao/cars-car
 import { ClientComponent } from "./views/client/client.component";
 import { ClientsReadComponent } from "./components/clients/clients-read/clients-read.component";
 import { ClientsCriarComponent } from "./components/clients/clients-criar/clients-criar.component";
-import { ClientsAlugarComponent } from "./components/clients/clients-alugar/clients-alugar.component";
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -57,8 +55,7 @@ registerLocaleData(localePt);
     CarsCarrinhoComponent,
     ClientComponent,
     ClientsReadComponent,
-    ClientsCriarComponent,
-    ClientsAlugarComponent
+    ClientsCriarComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +78,6 @@ registerLocaleData(localePt);
     ReactiveFormsModule
   ],
   providers: [
-    { provide: 'BaseURL', useValue: BaseURL },
     {
       provide: LOCALE_ID,
       useValue: "pt-BR",
