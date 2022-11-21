@@ -23,6 +23,10 @@ export class NavComponent implements OnInit {
     this.router.navigate(['locacao'])
   }
 
+  navigateToClientsAlugados(): void {
+    this.router.navigate(['alugados'])
+  }
+
   navigateToCarsCreate(): void {
     this.router.navigate(['cars/create'])
   }

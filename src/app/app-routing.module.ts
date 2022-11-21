@@ -1,3 +1,4 @@
+import { AlugadosComponent } from './components/alugados/alugados.component';
 import { LocacaoComponent } from './components/locacao/locacao.component';
 import { ClientsCriarComponent } from "./components/clients/clients-criar/clients-criar.component";
 import { ClientComponent } from "./views/client/client.component";
@@ -52,6 +53,10 @@ const routes: Routes = [
   {
     path: "locacao",
     component: LocacaoComponent
+  },
+  {
+    path: "alugados",
+    component: AlugadosComponent
   }
 ];
 

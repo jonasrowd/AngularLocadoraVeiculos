@@ -39,6 +39,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { LocacaoComponent } from './components/locacao/locacao.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { AlugadosComponent } from './components/alugados/alugados.component';
 
 registerLocaleData(localePt);
 
@@ -60,7 +61,8 @@ registerLocaleData(localePt);
     ClientComponent,
     ClientsReadComponent,
     ClientsCriarComponent,
-    LocacaoComponent
+    LocacaoComponent,
+    AlugadosComponent
   ],
   imports: [
     BrowserModule,

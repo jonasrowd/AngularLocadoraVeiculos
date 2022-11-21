@@ -167,7 +167,7 @@ export class LocacaoComponent implements OnInit {
 
       this.clearForm();
       
-      this.router.navigate(['/'])
+      this.router.navigate(['alugados'])
 
   }
   

@@ -23,10 +23,11 @@
 			</mat-menu>
 			<button mat-button [matMenuTriggerFor]="locacao">
 				<span class="material-icons">swap_vert</span>
-				Locação
+				Aluguel
 			</button>
 			<mat-menu #locacao="matMenu">
 				<button mat-menu-item (click)="navigateToClientsAluguel()">Novo</button>
+				<button mat-menu-item (click)="navigateToClientsAlugados()">Alugados</button>
 			</mat-menu>
 			<button mat-button [matMenuTriggerFor]="devolucao">
 				<span class="material-icons">swap_vert</span>

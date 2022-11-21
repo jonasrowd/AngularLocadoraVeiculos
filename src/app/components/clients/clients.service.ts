@@ -1,4 +1,3 @@
-import { Locacao } from './../locacao/locacao';
 import { EMPTY, Observable } from "rxjs";
 import { Clientes } from "./clientes.model";
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from "@angular/material/snack-bar";
