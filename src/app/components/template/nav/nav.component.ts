@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  panelOpenState = false;
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  navigateToClientsCreate(): void {
+    this.router.navigate(['clientes/criar'])
+  }
+
+  navigateToClientsAluguel(): void {
+    this.router.navigate(['locacao'])
+  }
+
+  navigateToCarsCreate(): void {
+    this.router.navigate(['cars/create'])
+  }
+
+  navigateToCarsDevolucao(): void {
+    this.router.navigate(['cars/devolucao'])
+  }
+
+  impress(): void {
+    
   }
 
 }

@@ -3,15 +3,15 @@
 	width: 200px;
 }
 
-.sidenav a {
+.content {
+	padding: 15px;
+	background-color: aliceblue;
+}
+
+.mat-button {
 	color: aliceblue;
 }
 
-.sidenav i {
-	padding-right: 10px;
-}
-
-.content {
-	padding: 15px;
-	background-color: lavender;
+.mat-mdc-form-field + .mat-mdc-form-field {
+	margin-left: 8px;
 }

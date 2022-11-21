@@ -1,3 +1,4 @@
+import { Locacao } from './../locacao/locacao';
 import { EMPTY, Observable } from "rxjs";
 import { Clientes } from "./clientes.model";
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from "@angular/material/snack-bar";
@@ -25,6 +26,11 @@ export class ClientsService {
       verticalPosition: "top",
       panelClass: isError ? ["msg-error"] : ["msg-success"],
     });
+  }
+
+  errorHandler(e: any): Observable<any> {
+    this.showMessage("Ocorreu um erro na aplicação.", true);
+    return EMPTY;
   }
 
   pegaError(e: any): Observable<any> {

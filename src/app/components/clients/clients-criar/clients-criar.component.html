@@ -1,52 +1,53 @@
-<form novalidate class="form-size" [formGroup]="cepForm" #cform="ngForm" (ngSubmit)="onSubmit()" *ngIf="clientes">
-	<div>
-	<h4>
-		Cadastro de Clientes
-	</h4>
-	<mat-form-field class="half-width">
-		<mat-label>Nome</mat-label>
-		<input matInput type="text" formControlName="nome" [value]="clientes.nome" autoFocus [(ngModel)]="clientes.nome" 	/>
-		<mat-error *ngIf="cepForm.get('nome')?.errors?.['required']">
-			O campo Nome é obrigatório.
-		</mat-error>
-	</mat-form-field>
+<mat-card>
+	<form novalidate class="form-size" [formGroup]="cepForm" #cform="ngForm" (ngSubmit)="onSubmit()" *ngIf="clientes">
+		<mat-card-title>
+			Novo Cliente
+		</mat-card-title>
+		<mat-form-field class=".full-width">
+			<mat-label>Nome</mat-label>
+			<input matInput type="text" formControlName="nome" [value]="clientes.nome" autoFocus [(ngModel)]="clientes.nome" 	/>
+			<mat-error *ngIf="cepForm.get('nome')?.errors?.['required']">
+				O campo Nome é obrigatório.
+			</mat-error>
+		</mat-form-field>
 
-	<mat-form-field class="half-width">
-		<mat-label>Telefone</mat-label>
-		<input matInput type="text"  formControlName="telefone" [value]="clientes.telefone" [(ngModel)]="clientes.telefone" 	/>
-		<mat-error *ngIf="cepForm.get('telefone')?.errors?.['required']">
-			O campo Nome é obrigatório.
-		</mat-error>
-	</mat-form-field>
-	<mat-form-field class="half-width">
-		<mat-label>CEP</mat-label>
-		<input matInput type="text" formControlName="dataCEP" maxlength="8"  required (input)="searchCep()" [value]="clientes.dataCEP" />
-		<mat-error *ngIf="cepForm.get('dataCEP')?.errors?.['required']">
-		O campo CEP é obrigatório.
-		</mat-error>
-	</mat-form-field>
-	<mat-form-field class="half-width">
-		<mat-label>Endereço</mat-label>
-		<input matInput type="text" readonly formControlName="address" [value]="clientes.address" [(ngModel)]="clientes.address" 	/>
-	</mat-form-field>
-	<mat-form-field class="half-width">
-		<mat-label>Bairro</mat-label>
-		<input matInput readonly formControlName="district" [value]="clientes.district" [(ngModel)]="clientes.district"  />
-	</mat-form-field>
-	<mat-form-field class="half-width">
-		<mat-label>Cidade</mat-label>
-		<input matInput readonly formControlName="city" [value]="clientes.city" [(ngModel)]="clientes.city" />
-	</mat-form-field>
-	<mat-form-field class="half-width">
-		<mat-label>Estado</mat-label>
-		<input matInput readonly formControlName="state" [value]="clientes.state" [(ngModel)]="clientes.state" />
-	</mat-form-field>
-	<div fxFlex>
-		<button mat-raised-button type="submit" [disabled]="cepForm.invalid" mat-button class="background-primary text-floral-white" color="primary">Salvar</button>
-		<button mat-raised-button (click)="cancel()">
-			Cancelar
-		</button>
-	</div>
+		<mat-form-field class=".full-width">
+			<mat-label>Telefone</mat-label>
+			<input matInput type="text"  formControlName="telefone" [value]="clientes.telefone" [(ngModel)]="clientes.telefone" 	/>
+			<mat-error *ngIf="cepForm.get('telefone')?.errors?.['required']">
+				O campo Nome é obrigatório.
+			</mat-error>
+		</mat-form-field>
+		<mat-form-field class=".full-width">
+			<mat-label>CEP</mat-label>
+			<input matInput type="text" formControlName="dataCEP" maxlength="8"  required (input)="searchCep()" [value]="clientes.dataCEP" />
+			<mat-error *ngIf="cepForm.get('dataCEP')?.errors?.['required']">
+			O campo CEP é obrigatório.
+			</mat-error>
+		</mat-form-field>
+		<mat-form-field class=".full-width">
+			<mat-label>Endereço</mat-label>
+			<input matInput type="text" readonly formControlName="address" [value]="clientes.address" [(ngModel)]="clientes.address" 	/>
+		</mat-form-field>
+		<mat-form-field class=".full-width">
+			<mat-label>Bairro</mat-label>
+			<input matInput readonly formControlName="district" [value]="clientes.district" [(ngModel)]="clientes.district"  />
+		</mat-form-field>
+		<mat-form-field class=".full-width">
+			<mat-label>Cidade</mat-label>
+			<input matInput readonly formControlName="city" [value]="clientes.city" [(ngModel)]="clientes.city" />
+		</mat-form-field>
+		<mat-form-field class=".full-width">
+			<mat-label>Estado</mat-label>
+			<input matInput readonly formControlName="state" [value]="clientes.state" [(ngModel)]="clientes.state" />
+		</mat-form-field>
+		<div fxFlex>
+			<button mat-raised-button type="submit" [disabled]="cepForm.invalid" mat-button class="background-primary text-floral-white" color="primary">Salvar</button>
+			<button mat-raised-button (click)="cancel()">
+				Cancelar
+			</button>
+		</div>
 
-	</div>
-</form>
+	</form>
+
+</mat-card>

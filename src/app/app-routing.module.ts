@@ -1,3 +1,4 @@
+import { LocacaoComponent } from './components/locacao/locacao.component';
 import { ClientsCriarComponent } from "./components/clients/clients-criar/clients-criar.component";
 import { ClientComponent } from "./views/client/client.component";
 import { CarsCarrinhoComponent } from "./components/cars/cars-devolucao/cars-carrinho/cars-carrinho.component";
@@ -47,6 +48,10 @@ const routes: Routes = [
   {
     path: "clientes/criar",
     component: ClientsCriarComponent,
+  },
+  {
+    path: "locacao",
+    component: LocacaoComponent
   }
 ];
 

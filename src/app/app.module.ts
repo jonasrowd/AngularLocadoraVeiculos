@@ -35,6 +35,10 @@ import { ClientsReadComponent } from "./components/clients/clients-read/clients-
 import { ClientsCriarComponent } from "./components/clients/clients-criar/clients-criar.component";
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatMenuModule } from '@angular/material/menu';
+import { LocacaoComponent } from './components/locacao/locacao.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 registerLocaleData(localePt);
 
@@ -55,7 +59,8 @@ registerLocaleData(localePt);
     CarsCarrinhoComponent,
     ClientComponent,
     ClientsReadComponent,
-    ClientsCriarComponent
+    ClientsCriarComponent,
+    LocacaoComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +80,10 @@ registerLocaleData(localePt);
     MatPaginatorModule,
     MatSortModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatMenuModule,
+    MatAutocompleteModule,
+    MatDatepickerModule
   ],
   providers: [
     {

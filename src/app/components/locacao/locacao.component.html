@@ -1,0 +1,54 @@
+<mat-card>
+	<form novalidate class="form-size" [formGroup]="locacaoForm" #lform="ngForm" (ngSubmit)="onSubmit()" *ngIf="locacao">
+		<mat-card-title>
+			Nova Locação
+		</mat-card-title>
+		<mat-form-field class=".full-width" *ngIf="locacao.cliente.length == 0">
+			<mat-label>Cliente</mat-label>
+			<input matInput type="text" [matAutocomplete]="cliente" [formControl]="locacaoCliente" formControlName="cliente" [value]="locacao.cliente" [(ngModel)]="locacao.cliente"	/>
+			<mat-autocomplete #cliente="matAutocomplete" >
+				<mat-option *ngFor="let cliente of clientes" 
+				[value]="cliente">
+					{{cliente.nome}}
+				</mat-option>
+			</mat-autocomplete>
+		</mat-form-field>
+
+		<mat-form-field class=".full-width" *ngIf="locacao.cliente.length != 0">
+			<mat-label>Cliente Selecionado</mat-label>
+			<input matInput readonly type="text" formControlName="cliente" [value]="locacao.cliente"  [(ngModel)]="locacao.cliente"/>
+		</mat-form-field>
+
+		<mat-form-field class=".full-width" *ngIf="locacao.carro.length == 0">
+			<mat-label>Veículo</mat-label>
+			<input matInput type="text" [matAutocomplete]="carro" [formControl]="locacaoCarro" formControlName="carro" required [value]="locacao.carro" [(ngModel)]="locacao.carro"/>
+			<mat-autocomplete #carro="matAutocomplete">
+				<mat-option *ngFor="let carro of carros"
+				[value]="carro">
+					{{ carro.marca }} {{ carro.modelo }} {{ carro.ano }}
+				</mat-option>
+			</mat-autocomplete>
+		</mat-form-field>
+
+		<mat-form-field class=".full-width" *ngIf="locacao.carro.length != 0">
+			<mat-label>Veículo Selecionado</mat-label>
+			<input matInput readonly type="text" formControlName="carro" [value]="locacao.carro"  [(ngModel)]="locacao.carro"/>
+		</mat-form-field>
+
+		<mat-form-field class=".full-width">
+			<mat-label>Quantidade de Dias</mat-label>
+			<input matInput type="number" formControlName="qtdDias" [value]="locacao.qtdDias"  [(ngModel)]="locacao.qtdDias" (input)="calcTotal(locacao.qtdDias)"/>
+		</mat-form-field>
+		<mat-form-field class=".full-width" *ngIf="locacao.qtdDias != 0">
+			<mat-label>Valor Total</mat-label>
+			<input matInput type="text" formControlName="total" [value]="locacao.total" readonly [(ngModel)]="locacao.total"/>
+		</mat-form-field>
+		<div fxFlex>
+			<button mat-raised-button type="submit" [disabled]="!locacaoForm.valid" mat-button class="background-primary text-floral-white" color="primary">Salvar</button>
+			<button mat-raised-button (click)="cancel()">
+			<!-- <button mat-raised-button (click)="resetForm()"> -->
+				Cancelar
+			</button>
+		</div>
+	</form>
+</mat-card>

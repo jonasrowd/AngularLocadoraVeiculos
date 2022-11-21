@@ -1,27 +1,50 @@
 <mat-sidenav-container class="container">
 	<mat-sidenav class="sidenav" mode="side" opened fixedInViewport="true" fixedTopGap="64">
 		<mat-nav-list class="nav-list">
-			<a mat-list-item routerLink="/">
-				<i class="material-icons">
-					home
-				</i>
-				Início
-			</a>
-			<a mat-list-item routerLink="/clientes">
-				<i class="material-icons">
-					person
-				</i>
+			<button mat-button routerLink="/" routerLinkActive="Active">
+				<span class="material-icons">home</span>
+				Home
+			</button>
+			<button mat-button [matMenuTriggerFor]="clientes">
+				<span class="material-icons">person</span>
 				Clientes
-			</a>
-			<a mat-list-item routerLink="/cars">
-				<i class="material-icons">
-					directions_car
-				</i>
+			</button>
+			<mat-menu #clientes="matMenu">
+				<button mat-menu-item (click)="navigateToClientsCreate()">Novo</button>
+				<button mat-menu-item routerLink="/clientes" routerLinkActive="Active">Cadastros</button>
+			</mat-menu>
+			<button mat-button [matMenuTriggerFor]="veiculos">
+				<span class="material-icons">directions_car</span>
 				Veículos
-			</a>
+			</button>
+			<mat-menu #veiculos="matMenu">
+				<button mat-menu-item (click)="navigateToCarsCreate()">Novo</button>
+				<button mat-menu-item routerLink="/cars" routerLinkActive="Active">Cadastros</button>
+			</mat-menu>
+			<button mat-button [matMenuTriggerFor]="locacao">
+				<span class="material-icons">swap_vert</span>
+				Locação
+			</button>
+			<mat-menu #locacao="matMenu">
+				<button mat-menu-item (click)="navigateToClientsAluguel()">Novo</button>
+			</mat-menu>
+			<button mat-button [matMenuTriggerFor]="devolucao">
+				<span class="material-icons">swap_vert</span>
+				Devolução
+			</button>
+			<mat-menu #devolucao="matMenu">
+				<button mat-menu-item (click)="navigateToCarsDevolucao()">Devolução</button>
+			</mat-menu>
+			<button mat-button [matMenuTriggerFor]="relatorios">
+				<span class="material-icons">description</span>
+				Relatórios
+			</button>
+			<mat-menu #relatorios="matMenu">
+				<button mat-menu-item (click)="impress()">Relatório A</button>
+			</mat-menu>
 		</mat-nav-list>
 	</mat-sidenav>
 	<mat-sidenav-content class="content">
-		<router-outlet></router-outlet>
+<router-outlet></router-outlet>
 	</mat-sidenav-content>
 </mat-sidenav-container>

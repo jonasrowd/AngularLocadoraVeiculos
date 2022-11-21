@@ -33,7 +33,7 @@
 		<ng-container matColumnDef="action">
 			<th mat-header-cell *matHeaderCellDef>Editar</th>
 			<td mat-cell *matCellDef="let row">
-				<a routerLink="/cars/alteracao/{{ row.id }}" class="edit">
+				<a routerLink="/cars/alteracao/{{ row.id }}" class="edit" *ngIf="row.disponivel === 'Sim'">
 					<i class="material-icons">
 						edit
 					</i>
@@ -44,7 +44,7 @@
 		<ng-container matColumnDef="excluir">
 			<th mat-header-cell *matHeaderCellDef>Excluir</th>
 			<td mat-cell *matCellDef="let row">
-				<a routerLink="/cars/delete/{{ row.id }}" class="delete">
+				<a routerLink="/cars/delete/{{ row.id }}" class="delete" *ngIf="row.disponivel === 'Sim'">
 					<i class="material-icons">
 						delete
 					</i>
