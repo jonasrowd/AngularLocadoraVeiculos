@@ -121,9 +121,9 @@ export class LocacaoComponent implements OnInit {
       idCarro:    [''],
       dtIni:      [''],
       dtFim:      [''],
-      cliente:    ['', Validators.required],
-      carro:      ['', Validators.required],
-      qtdDias:    [0, Validators.required],
+      cliente:    ['', [Validators.required]],
+      carro:      ['', [Validators.required]],
+      qtdDias:    [''],
       multa:      [''],
       total:      ['']
     });
@@ -158,28 +158,16 @@ export class LocacaoComponent implements OnInit {
 
     console.log(this.locacao);
 
-    this.locacao.dtIni=new Date().toISOString();
+    this.locacao.dtIni = new Date().toISOString();
 
     this.locacaoService.alugar(this.locacao)
       .subscribe(() => {
         this.clientsService.showMessage('Cadastro Concluído!')
       });
 
-    this.clearForm();
-
-    this.locacaoForm.reset({
-      idCliente  : '',
-      idCarro    : '',
-      cliente    : '',
-      carro      : '',
-      dtIni      : '',
-      dtFim      : '',
-      qtdDias    : 0,
-      multa      : '',
-      total      : ''
-    });
-
-    this.locacaoFormDirective.resetForm();
+      this.clearForm();
+      
+      this.router.navigate(['/'])
 
   }
   
@@ -220,7 +208,7 @@ export class LocacaoComponent implements OnInit {
       return this.valorDiaria;
   }
 
-  procuraCliente(data?: any) {
+  procuraCliente(data?: any): void {
     if (data == '') {return;}
     else{
       this.locacao.idCliente = data.id
