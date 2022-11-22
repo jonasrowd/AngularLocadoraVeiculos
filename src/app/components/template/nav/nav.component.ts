@@ -36,7 +36,7 @@ export class NavComponent implements OnInit {
   }
 
   impress(): void {
-    
+    this.router.navigate(['relatorios'])
   }
 
 }

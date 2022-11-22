@@ -36,13 +36,13 @@
 			<mat-menu #devolucao="matMenu">
 				<button mat-menu-item (click)="navigateToCarsDevolucao()">Devolução</button>
 			</mat-menu>
-			<button mat-button [matMenuTriggerFor]="relatorios">
+			<button mat-button (click)="impress()">
 				<span class="material-icons">description</span>
 				Relatórios
 			</button>
-			<mat-menu #relatorios="matMenu">
+			<!-- <mat-menu #relatorios="matMenu">
 				<button mat-menu-item (click)="impress()">Relatório A</button>
-			</mat-menu>
+			</mat-menu> -->
 		</mat-nav-list>
 	</mat-sidenav>
 	<mat-sidenav-content class="content">

@@ -40,6 +40,7 @@ import { LocacaoComponent } from './components/locacao/locacao.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { AlugadosComponent } from './components/alugados/alugados.component';
+import { RelatoriosComponent } from './components/relatorios/relatorios.component';
 
 registerLocaleData(localePt);
 
@@ -62,7 +63,8 @@ registerLocaleData(localePt);
     ClientsReadComponent,
     ClientsCriarComponent,
     LocacaoComponent,
-    AlugadosComponent
+    AlugadosComponent,
+    RelatoriosComponent
   ],
   imports: [
     BrowserModule,
