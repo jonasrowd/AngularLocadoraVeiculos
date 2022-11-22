@@ -1,59 +1,61 @@
 <mat-card>
 	<mat-card-title> Recebimento de Carros </mat-card-title>
 	<form>
-	  <mat-form-field>
+	<mat-form-field>
 		<input
-		  matInput
-		  placeholder="Marca"
-		  [(ngModel)]="cars.marca"
-		  name="marca"
-		  readonly
+		matInput
+		placeholder="Carro"
+		[(ngModel)]="locacao.carro"
+		name="carro"
+		readonly
 		/>
-	  </mat-form-field>
-	  <mat-form-field>
+	</mat-form-field>
+	<mat-form-field>
 		<input
-		  matInput
-		  placeholder="Modelo"
-		  [(ngModel)]="cars.modelo"
-		  name="modelo"
-		  readonly
+		matInput
+		placeholder="Cliente"
+		[(ngModel)]="locacao.cliente"
+		name="cliente"
+		readonly
 		/>
-	  </mat-form-field>
-	  <mat-form-field>
-		<input matInput placeholder="Ano" [(ngModel)]="cars.ano" name="ano" readonly/>
-	  </mat-form-field>
-	  <mat-form-field>
+	</mat-form-field>
+	<mat-form-field>
+		<input matInput placeholder="Data Inicial" [(ngModel)]="locacao.dtIni" name="dtIni" readonly/>
+	</mat-form-field>
+	<mat-form-field>
+		<input matInput placeholder="Data Fim" [(ngModel)]="locacao.dtFim" name="dtFim" readonly/>
+	</mat-form-field>
+	<mat-form-field>
 		<input
-		  matInput
-		  placeholder="Diária (R$)"
-		  [(ngModel)]="cars.diaria"
-		  name="diaria"
-		  readonly
+		matInput
+		placeholder="Quantidade Dias"
+		[(ngModel)]="locacao.qtdDias"
+		name="qtdDias"
+		readonly
 		/>
-	  </mat-form-field>
-	  <mat-form-field>
+	</mat-form-field>
+	<mat-form-field>
 		<input
-		  matInput
-		  placeholder="Categoria"
-		  [(ngModel)]="cars.categoria"
-		  name="categoria"
-		  readonly
+		matInput
+		placeholder="Multa"
+		[(ngModel)]="locacao.multa"
+		name="multa"
+		readonly
 		/>
-	  </mat-form-field>
-	  <mat-form-field>
+	</mat-form-field>
+	<mat-form-field>
 		<input
-		  matInput
-		  placeholder="Qtd. Dias"
-		  name="dias"
-		  value=""
-		  type="number"
-		  required
+		matInput
+		placeholder="Total"
+		[(ngModel)]="locacao.total"
+		name="total"
+		readonly
 		/>
-	  </mat-form-field>
+	</mat-form-field>
 	</form>
 	<button mat-raised-button (click)="recebeCars()" color="primary">
-	  Receber
+	Receber
 	</button>
 	<button mat-raised-button (click)="cancel()">Cancelar</button>
-  </mat-card>
-  
+	<button mat-raised-button (click)="calcMulta()">Calcula Multa</button>
+</mat-card>

@@ -158,7 +158,7 @@ export class LocacaoComponent implements OnInit {
 
     console.log(this.locacao);
 
-    this.locacao.dtIni = new Date().toISOString();
+    this.locacao.dtIni = new Date().toLocaleDateString();
 
     this.locacaoService.alugar(this.locacao)
       .subscribe(() => {

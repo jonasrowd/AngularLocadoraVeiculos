@@ -1,0 +1,22 @@
+.edit {
+	margin: 5px;
+	position: flex;
+}
+
+.edit > i {
+	color:yellowgreen;
+}
+
+.delete > i {
+	color:blue;
+}
+
+button {
+	margin-bottom: 15px;
+	margin-right: 15px;
+	margin-top: 15px;
+}
+
+.full-width-table {
+	width: 100%;
+}

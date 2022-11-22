@@ -39,7 +39,7 @@ const routes: Routes = [
     component: CarsDeleteComponent,
   },
   {
-    path: "cars/carrinho/:id",
+    path: "cars/devolucao/:id",
     component: CarsCarrinhoComponent,
   },
   {

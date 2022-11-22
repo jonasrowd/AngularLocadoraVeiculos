@@ -1,30 +1,29 @@
+import { LocacaoService } from './../../locacao/locacao.service';
 import { Router } from '@angular/router';
-import { Cars } from './../cars.model';
-import { CarsService } from './../cars.service';
 import { Component, OnInit } from '@angular/core';
+import { Locacao } from '../../locacao/locacao';
 
 @Component({
   selector: 'locadora-cars-devolucao',
   templateUrl: './cars-devolucao.component.html',
-  styleUrls: ['./cars-devolucao.component.css']
+  styleUrls: ['./cars-devolucao.component.scss']
 })
 export class CarsDevolucaoComponent implements OnInit {
 
-  cars: Cars[] = []
-  displayedColumns = ['marca','modelo','ano','diaria','categoria','disponivel','action']
-
-  constructor(private carsService: CarsService, private router: Router) { }
+  locacao: Locacao[];
+  displayedColumns = ['carro','cliente','qtdDias','dtIni','total','action'] 
+  
+  constructor(private locacaoService: LocacaoService, private router: Router) { }
 
   ngOnInit(): void {
-    this.carsService.readCarFalse().subscribe(cars => {
-      this.cars = cars
+    this.locacaoService.leituraLocacoes().subscribe(locacao => {
+      this.locacao = locacao;
     })
+
   }
 
-  devolveCars(): void {
-  }
   cancel(): void {
-    this.router.navigate(['/cars'])
+    this.router.navigate(['/'])
   }
 
 }

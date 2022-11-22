@@ -7,6 +7,6 @@ export interface Locacao {
     qtdDias:  number,
     dtIni: string,
     dtFim?: string,
-    multa?: string,
+    multa?: any,
     total: any
 }
