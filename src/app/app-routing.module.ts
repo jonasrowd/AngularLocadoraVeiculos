@@ -1,18 +1,19 @@
-import { RelatoriosComponent } from './components/relatorios/relatorios.component';
-import { AlugadosComponent } from './components/alugados/alugados.component';
-import { LocacaoComponent } from './components/locacao/locacao.component';
-import { ClientsCriarComponent } from "./components/clients/clients-criar/clients-criar.component";
-import { ClientComponent } from "./views/client/client.component";
-import { CarsCarrinhoComponent } from "./components/cars/cars-devolucao/cars-carrinho/cars-carrinho.component";
-import { CarsDeleteComponent } from "./components/cars/cars-delete/cars-delete.component";
-import { CarsAlteracaoComponent } from "./components/cars/cars-alteracao/cars-alteracao.component";
-import { CarsDevolucaoComponent } from "./components/cars/cars-devolucao/cars-devolucao.component";
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from "./views/home/home.component";
-import { CarsComponent } from "./views/cars/cars.component";
-import { CarsCreateComponent } from "./components/cars/cars-create/cars-create.component";
+import { AlugadosComponent } from './components/alugados/alugados.component';
+import { CarsAlteracaoComponent } from './components/cars/cars-alteracao/cars-alteracao.component';
+import { CarsCreateComponent } from './components/cars/cars-create/cars-create.component';
+import { CarsDeleteComponent } from './components/cars/cars-delete/cars-delete.component';
+import { CarsCarrinhoComponent } from './components/cars/cars-devolucao/cars-carrinho/cars-carrinho.component';
+import { CarsDevolucaoComponent } from './components/cars/cars-devolucao/cars-devolucao.component';
+import { ClientsAlteracaoComponent } from './components/clients/clients-alteracao/clients-alteracao.component';
+import { ClientsCriarComponent } from './components/clients/clients-criar/clients-criar.component';
+import { LocacaoComponent } from './components/locacao/locacao.component';
+import { RelatoriosComponent } from './components/relatorios/relatorios.component';
+import { CarsComponent } from './views/cars/cars.component';
+import { ClientComponent } from './views/client/client.component';
+import { HomeComponent } from './views/home/home.component';
 
 const routes: Routes = [
   {
@@ -62,6 +63,10 @@ const routes: Routes = [
   {
     path: "relatorios",
     component: RelatoriosComponent
+  },
+  {
+    path:"clientes/alteracao/:id",
+    component: ClientsAlteracaoComponent
   }
 ];
 

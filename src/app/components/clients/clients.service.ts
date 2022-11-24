@@ -1,9 +1,10 @@
-import { EMPTY, Observable } from "rxjs";
-import { Clientes } from "./clientes.model";
-import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from "@angular/material/snack-bar";
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
-import { catchError, map, tap } from "rxjs/operators";
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { EMPTY, Observable } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
+
+import { Clientes } from './clientes.model';
 
 @Injectable({
   providedIn: "root",
@@ -84,7 +85,6 @@ export class ClientsService {
     });
   }
 
-    /** POST: add a new hero to the database */
     submitCliente(cliente: Clientes): Observable<Clientes> {
       const httpOptions = {
         headers: new HttpHeaders({
@@ -103,6 +103,21 @@ export class ClientsService {
         verticalPosition: "top",
         panelClass: isError ? ["msg-error"] : ["msg-success"],
       });
+    }
+
+    readById(id: any): Observable<Clientes> {
+      const url = `${this.baseClientesUrl}/${id}`;
+      return this._httpClient.get<Clientes>(url)
+    }
+
+    alterarClientes(cliente: Clientes): Observable<Clientes> {
+      const url = `${this.baseClientesUrl}/${cliente.id}`;
+      return this._httpClient.put<Clientes>(url, cliente)
+    }
+  
+    deletaClientes(id: any): Observable<Clientes> {
+      const url = `${this.baseClientesUrl}/${id}`;
+      return this._httpClient.delete<Clientes>(url)
     }
 
 }

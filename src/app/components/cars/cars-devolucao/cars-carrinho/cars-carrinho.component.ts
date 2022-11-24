@@ -1,14 +1,15 @@
-import { LocacaoService } from './../../../locacao/locacao.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { Locacao } from './../../../locacao/locacao';
+import { LocacaoService } from './../../../locacao/locacao.service';
 import { Cars } from './../../cars.model';
 import { CarsService } from './../../cars.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'locadora-cars-carrinho',
   templateUrl: './cars-carrinho.component.html',
-  styleUrls: ['./cars-carrinho.component.css']
+  styleUrls: ['./cars-carrinho.component.scss']
 })
 export class CarsCarrinhoComponent implements OnInit {
 
@@ -43,6 +44,10 @@ export class CarsCarrinhoComponent implements OnInit {
       this.locacao = locacao;
       this.locacao.dtFim = new Date().toLocaleDateString();
     })
+
+
+
+
   }
 
   calcMulta(): void {
@@ -60,17 +65,26 @@ export class CarsCarrinhoComponent implements OnInit {
       this.calcMulta();
     }
 
-    this.carsService.readById(this.locacao.idCarro).subscribe((cars) => {
-      this.cars = cars;
+    // this.locacao.dtFim= new Date().toLocaleDateString();
+    this.locacaoService.receberLocacao(this.locacao).subscribe(() => {
+      this.carsService.showMessage("Recebido com sucesso!");
+      // this.router.navigate(["/alugados"]);
     });
 
-    this.carsService.devolveCar(this.cars).subscribe(() => {
-      this.router.navigate(["/cars/devolucao"]);
+    this.carsService.readById(this.locacao.idCarro).subscribe((cars) => {
+      this.cars = cars;
+      this.cars.disponivel="Sim";
+      this.carsService.atualizaCar(this.cars).subscribe(() => {
+        // this.carsService.showMessage("Carro atualizado com sucesso!");
+        this.router.navigate(["/alugados"]);
+      });
     });
+
 
   }
 
   cancel(): void {
     this.router.navigate(['/cars/devolucao'])
   }
+
 }

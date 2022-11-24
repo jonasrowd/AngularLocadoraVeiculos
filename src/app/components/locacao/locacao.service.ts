@@ -1,7 +1,8 @@
-import { Observable } from 'rxjs';
-import { Locacao } from './locacao';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { Locacao } from './locacao';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,11 @@ export class LocacaoService {
   readById(id: any): Observable<Locacao> {
     const url = `${this.baseLocacaoURL}/${id}`;
     return this.http.get<Locacao>(url)
+  }
+
+  receberLocacao(locacao: Locacao): Observable<Locacao> {
+    const url = `${this.baseLocacaoURL}/${locacao.id}`;
+    return this.http.put<Locacao>(url, locacao);
   }
 
 }

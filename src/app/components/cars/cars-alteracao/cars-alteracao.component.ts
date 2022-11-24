@@ -1,13 +1,14 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { Clientes } from './../../clients/clientes.model';
-import { Cars } from "./../cars.model";
-import { ActivatedRoute, Router } from "@angular/router";
-import { CarsService } from "./../cars.service";
-import { Component, OnInit } from "@angular/core";
+import { Cars } from './../cars.model';
+import { CarsService } from './../cars.service';
 
 @Component({
   selector: "locadora-cars-alteracao",
   templateUrl: "./cars-alteracao.component.html",
-  styleUrls: ["./cars-alteracao.component.css"],
+  styleUrls: ["./cars-alteracao.component.scss"],
 })
 export class CarsAlteracaoComponent implements OnInit {
   cars: Cars = {

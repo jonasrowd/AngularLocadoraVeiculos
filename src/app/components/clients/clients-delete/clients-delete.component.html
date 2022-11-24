@@ -1,0 +1,64 @@
+<mat-card>
+    <mat-card-title> Deletar Clientes </mat-card-title>
+    <form>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Nome"
+          [(ngModel)]="clientes.nome"
+          name="nome"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Identificação"
+          [(ngModel)]="clientes.telefone"
+          name="identificacao"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput 
+        placeholder="Tipo" 
+        [(ngModel)]="clientes.dataCEP" 
+        name="tipo" />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Habilitação"
+          [(ngModel)]="clientes.address"
+          name="habilitacao"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Cep"
+          [(ngModel)]="clientes.district"
+          name="cep"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Endereço"
+          [(ngModel)]="clientes.state"
+          name="endereco"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Complemento"
+          [(ngModel)]="clientes.city"
+          name="complemento"
+        />
+      </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="deleteClientes()" color="primary">
+      Salvar
+    </button>
+    <button mat-raised-button (click)="cancel()">Cancelar</button>
+  </mat-card>
+  

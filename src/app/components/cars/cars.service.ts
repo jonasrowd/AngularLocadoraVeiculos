@@ -1,10 +1,11 @@
-import { Cars } from "./cars.model";
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { MatSnackBar } from "@angular/material/snack-bar";
-import { Observable } from "rxjs/internal/Observable";
-import { catchError, map } from "rxjs/operators";
-import { EMPTY } from "rxjs";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { EMPTY } from 'rxjs';
+import { Observable } from 'rxjs/internal/Observable';
+import { catchError, map } from 'rxjs/operators';
+
+import { Cars } from './cars.model';
 
 @Injectable({
   providedIn: "root",
@@ -35,13 +36,6 @@ export class CarsService {
   errorHandler(e: any): Observable<any> {
     this.showMessage("Ocorreu um erro na aplicação.", true);
     return EMPTY;
-  }
-
-  devolveCar(car: Cars): Observable<Cars> {
-    return this.http.patch<Cars>(this.baseCarUrl, (car.disponivel = "Sim")).pipe(
-      map((obj) => obj),
-      catchError((e) => this.errorHandler(e))
-    );
   }
 
   readCar(): Observable<Cars[]> {

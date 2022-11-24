@@ -1,12 +1,13 @@
-import { Cars } from './../cars/cars.model';
-import { Clientes } from './../clients/clientes.model';
+import { Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
-import { LocacaoService } from './locacao.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { Cars } from './../cars/cars.model';
 import { CarsService } from './../cars/cars.service';
+import { Clientes } from './../clients/clientes.model';
 import { ClientsService } from './../clients/clients.service';
-import { Component, OnInit, ViewChild, OnChanges, SimpleChanges  } from '@angular/core';
 import { Locacao } from './locacao';
+import { LocacaoService } from './locacao.service';
 
 @Component({
   selector: 'locadora-locacao',
@@ -111,7 +112,11 @@ export class LocacaoComponent implements OnInit {
   
     this.locacaoForm.get("carro").valueChanges.subscribe(selectedValue => {
       this.procuraVeiculo(selectedValue);
+
     }) 
+
+
+
   }
 
   createForm() {
@@ -165,9 +170,11 @@ export class LocacaoComponent implements OnInit {
         this.clientsService.showMessage('Cadastro Concluído!')
       });
 
+      this.alteraCars();
+    
       this.clearForm();
       
-      this.router.navigate(['alugados'])
+      // this.router.navigate(['alugados'])
 
   }
   
@@ -185,7 +192,7 @@ export class LocacaoComponent implements OnInit {
 
   cancel(): void {
 
-    this.router.navigate(['/'])
+    this.router.navigate(['alugados'])
 
   }
 
@@ -202,6 +209,10 @@ export class LocacaoComponent implements OnInit {
       this.locacaoForm.get("carro").setValue(data.marca + '/' + data.modelo  + '/' + data.ano, { emitEvent: false });
 
       };
+
+      this.carsService.readById(this.locacao.idCarro).subscribe(carro => {
+        this.carro = carro;
+      });
 
       console.log(data);
 
@@ -223,6 +234,11 @@ export class LocacaoComponent implements OnInit {
     console.log(this.valorDiaria);
 
     this.locacao.total = qtdDias * this.valorDiaria;
+  }
+
+  alteraCars(): void {
+    this.carro.disponivel = "Não";
+    this.carsService.atualizaCar(this.carro);
   }
 
 }
