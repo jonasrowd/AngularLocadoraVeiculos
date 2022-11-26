@@ -44,6 +44,7 @@ import { MovDirective } from './directives/mov.directive';
 import { CarsComponent } from './views/cars/cars.component';
 import { ClientComponent } from './views/client/client.component';
 import { HomeComponent } from './views/home/home.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 registerLocaleData(localePt);
 
@@ -92,7 +93,8 @@ registerLocaleData(localePt);
     ReactiveFormsModule,
     MatMenuModule,
     MatAutocompleteModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatTabsModule
   ],
   providers: [
     {
