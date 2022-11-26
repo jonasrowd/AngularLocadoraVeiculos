@@ -12,10 +12,26 @@
 	color: #23476f;
 }
 
-.divider {
-	margin-top: 10px;
+.home {
+	border-color: #23476f;
+	border-style:solid;
 }
 
-.home {
+.divider {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.container{
 	text-align: center;
+	background-color: #23476f;
+}
+
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+	color:aliceblue;
+	background-color: #23476f;
+}
+	
+::ng-deep .mat-tab-list .mat-tab-labels {
+	background-color:#3976bb;
 }
