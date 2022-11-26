@@ -22,7 +22,6 @@ export class CarsCreateComponent implements OnInit {
   constructor(private carsService: CarsService, private router: Router) { }
 
   ngOnInit(): void {
-
   }
 
   createCars(): void {

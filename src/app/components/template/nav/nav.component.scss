@@ -1,17 +1,23 @@
-.sidenav {
-	background-color: steelblue;
-	width: 200px;
-}
-
 .content {
 	padding: 15px;
-	background-color: aliceblue;
+    height: calc(100vh - 98px);
+    border-radius: 20px;
+    margin-left: 32px;
+
+    font-size: 1rem;
+    color: lightgray;
 }
 
-.mat-button {
-	color: aliceblue;
+mat-sidenav {
+    margin: 16px;
+    width: 160px;
+    background-color: #285991;
+    color: white;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: left;
 }
 
-.mat-mdc-form-field + .mat-mdc-form-field {
-	margin-left: 8px;
+mat-sidenav-container {
+    height: calc(100vh - 65px);
 }

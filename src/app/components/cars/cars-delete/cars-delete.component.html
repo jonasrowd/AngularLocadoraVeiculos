@@ -2,43 +2,19 @@
   <mat-card-title> Deletar Carro </mat-card-title>
   <form>
     <mat-form-field>
-      <input
-        matInput
-        placeholder="Marca"
-        [value]="cars.marca"
-        name="marca"
-        disabled
-      />
+      <input matInput placeholder="Marca" [value]="cars.marca" name="marca" disabled/>
     </mat-form-field>
     <mat-form-field>
-      <input
-        matInput
-        placeholder="Modelo"
-        [value]="cars.modelo"
-        name="modelo"
-        disabled
-      />
+      <input matInput placeholder="Modelo" [value]="cars.modelo" name="modelo" disabled/>
     </mat-form-field>
     <mat-form-field>
       <input matInput placeholder="Ano" [value]="cars.ano" name="ano" disabled/>
     </mat-form-field>
     <mat-form-field>
-      <input
-        matInput
-        placeholder="Diária (R$)"
-        [value]="cars.diaria"
-        name="diaria"
-        disabled
-      />
+      <input matInput placeholder="Diária (R$)" [value]="cars.diaria" name="diaria" disabled/>
     </mat-form-field>
     <mat-form-field>
-      <input
-        matInput
-        placeholder="Categoria"
-        [value]="cars.categoria"
-        name="categoria"
-        disabled
-      />
+      <input matInput placeholder="Categoria" [value]="cars.categoria" name="categoria" disabled/>
     </mat-form-field>
   </form>
   <button mat-raised-button (click)="deleteCar()" color="warn">Excluir</button>

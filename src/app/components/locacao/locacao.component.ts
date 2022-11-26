@@ -1,6 +1,6 @@
-import { Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { Cars } from './../cars/cars.model';
 import { CarsService } from './../cars/cars.service';
@@ -50,7 +50,8 @@ export class LocacaoComponent implements OnInit {
     address: '',
     district: '',
     state: '',
-    city: ''
+    city: '',
+    disponivel: ''
   }
 
   carro: Cars = {
@@ -88,14 +89,13 @@ export class LocacaoComponent implements OnInit {
     private carsService:CarsService,
     private locacaoService: LocacaoService,
     private router: Router,
-    private formbuilder: FormBuilder,
-    private route: ActivatedRoute) { }
+    private formbuilder: FormBuilder) { }
 
   ngOnInit(): void {
 
     this.createForm();
 
-    this.clientsService.leituraClientes().subscribe(clientes => {
+    this.clientsService.leituraClientesTrue().subscribe(clientes => {
       this.clientes = clientes
     })
 
@@ -109,13 +109,9 @@ export class LocacaoComponent implements OnInit {
       }
     })
   
-  
     this.locacaoForm.get("carro").valueChanges.subscribe(selectedValue => {
       this.procuraVeiculo(selectedValue);
-
     }) 
-
-
 
   }
 
@@ -159,23 +155,16 @@ export class LocacaoComponent implements OnInit {
 
   onSubmit() {
 
-    // this.locacao = this.locacaoForm.value;
-
-    console.log(this.locacao);
-
     this.locacao.dtIni = new Date().toLocaleDateString();
 
     this.locacaoService.alugar(this.locacao)
       .subscribe(() => {
         this.clientsService.showMessage('Cadastro Concluído!')
-      });
+    });
 
-      this.alteraCars();
-    
-      this.clearForm();
-      
-      // this.router.navigate(['alugados'])
-
+    this.alteraCars();
+    this.alteraClients();
+    this.clearForm();
   }
   
   clearForm() {
@@ -191,31 +180,21 @@ export class LocacaoComponent implements OnInit {
   }
 
   cancel(): void {
-
     this.router.navigate(['alugados'])
-
   }
 
   procuraVeiculo(data?: any) {
-
     this.valorDiaria = data.diaria
-
     if (data == ''){ return;}
     else {
-
       this.locacao.idCarro = data.id
       this.locacao.total = data.diaria
       this.locacao.carro = data.marca + '/' + data.modelo  + '/' + data.ano
       this.locacaoForm.get("carro").setValue(data.marca + '/' + data.modelo  + '/' + data.ano, { emitEvent: false });
-
       };
-
       this.carsService.readById(this.locacao.idCarro).subscribe(carro => {
         this.carro = carro;
       });
-
-      console.log(data);
-
       return this.valorDiaria;
   }
 
@@ -226,19 +205,28 @@ export class LocacaoComponent implements OnInit {
       this.locacao.cliente = data.nome
       this.locacaoForm.get("cliente").setValue(data.nome, { emitEvent: false });
     }
-    console.log(data);
+    this.clientsService.readById(this.locacao.idCliente).subscribe(cliente => {
+      this.cliente = cliente;
+    });
   }
 
-
   calcTotal(qtdDias: any): void {
-    console.log(this.valorDiaria);
-
     this.locacao.total = qtdDias * this.valorDiaria;
   }
 
-  alteraCars(): void {
+  alteraCars() {
     this.carro.disponivel = "Não";
-    this.carsService.atualizaCar(this.carro);
+    this.carsService.atualizaCar(this.carro).subscribe(() => {
+    });
+  }
+
+  alteraClients(): void {
+    this.cliente.disponivel= "Não";
+    this.clientsService.alterarClientes(this.cliente).subscribe(() => {
+      console.log(this.carro);
+      console.log(this.locacao);
+      console.log(this.cliente);
+    });
   }
 
 }

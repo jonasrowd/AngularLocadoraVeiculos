@@ -6,5 +6,6 @@ export interface Clientes {
     address: string,
     district: string,
     state: string,
-    city: string
+    city: string,
+    disponivel: string
 }

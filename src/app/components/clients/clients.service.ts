@@ -10,7 +10,11 @@ import { Clientes } from './clientes.model';
   providedIn: "root",
 })
 export class ClientsService {
+
+  pdfMake: any;
+
   baseClientesUrl = "http://localhost:4202/clientes";
+  baseClientesUrlTrue = "http://localhost:4202/clientes?disponivel=Sim";
 
   private baseURL: string = 'https://cep.awesomeapi.com.br/';
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
@@ -40,6 +44,13 @@ export class ClientsService {
 
   leituraClientes(): Observable<Clientes[]> {
     return this._httpClient.get<Clientes[]>(this.baseClientesUrl).pipe(
+      map((obj) => obj),
+      catchError((e) => this.pegaError(e))
+    );
+  }
+
+  leituraClientesTrue(): Observable<Clientes[]> {
+    return this._httpClient.get<Clientes[]>(this.baseClientesUrlTrue).pipe(
       map((obj) => obj),
       catchError((e) => this.pegaError(e))
     );

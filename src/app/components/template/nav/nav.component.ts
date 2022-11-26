@@ -15,28 +15,12 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  navigateToClientsCreate(): void {
-    this.router.navigate(['clientes/criar'])
-  }
-
-  navigateToClientsAluguel(): void {
-    this.router.navigate(['locacao'])
-  }
-
   navigateToClientsAlugados(): void {
     this.router.navigate(['alugados'])
   }
 
-  navigateToCarsCreate(): void {
-    this.router.navigate(['cars/create'])
-  }
-
   navigateToCarsDevolucao(): void {
     this.router.navigate(['cars/devolucao'])
-  }
-
-  impress(): void {
-    this.router.navigate(['relatorios'])
   }
 
 }

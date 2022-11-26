@@ -1,5 +1,10 @@
 <mat-card>
 	<mat-card-title>Veículos Alugados</mat-card-title>
+
+	<button mat-raised-button (click)="navigateToClientsAluguel()" color="primary">Nova Locação</button>
+	<button mat-raised-button (click)="createPdf()" color="primary">Relatório</button>
+
+
 	<table mat-table class="full-width-table" [dataSource]="locacao">
 		<ng-container matColumnDef="carro">
 			<th mat-header-cell *matHeaderCellDef>Carro</th>

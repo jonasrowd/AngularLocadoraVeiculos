@@ -56,9 +56,9 @@
         />
       </mat-form-field>
     </form>
-    <button mat-raised-button (click)="deleteClientes()" color="primary">
-      Salvar
+    <button mat-raised-button (click)="deleteClientes()" color="warn" *ngIf="clientes.disponivel == 'Sim'">
+      Deletar
     </button>
-    <button mat-raised-button (click)="cancel()">Cancelar</button>
+    <button mat-raised-button (click)="cancel()" color="primary">Cancelar</button>
   </mat-card>
   

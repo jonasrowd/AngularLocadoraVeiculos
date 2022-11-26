@@ -1,61 +1,29 @@
 <mat-card>
 	<mat-card-title> Recebimento de Veículos </mat-card-title>
 	<form>
-	<mat-form-field>
-		<input
-		matInput
-		placeholder="Veículo"
-		[(ngModel)]="locacao.carro"
-		name="carro"
-		readonly
-		/>
-	</mat-form-field>
-	<mat-form-field>
-		<input
-		matInput
-		placeholder="Cliente"
-		[(ngModel)]="locacao.cliente"
-		name="cliente"
-		readonly
-		/>
-	</mat-form-field>
-	<mat-form-field>
-		<input matInput placeholder="Data Inicial" [(ngModel)]="locacao.dtIni" name="dtIni" readonly/>
-	</mat-form-field>
-	<mat-form-field>
-		<input matInput placeholder="Data Fim" [(ngModel)]="locacao.dtFim" name="dtFim" readonly/>
-	</mat-form-field>
-	<mat-form-field>
-		<input
-		matInput
-		placeholder="Quantidade Dias"
-		[(ngModel)]="locacao.qtdDias"
-		name="qtdDias"
-		readonly
-		/>
-	</mat-form-field>
-	<mat-form-field>
-		<input
-		matInput
-		placeholder="Multa"
-		[(ngModel)]="locacao.multa"
-		name="multa"
-		readonly
-		/>
-	</mat-form-field>
-	<mat-form-field>
-		<input
-		matInput
-		placeholder="Total"
-		[(ngModel)]="locacao.total"
-		name="total"
-		readonly
-		/>
-	</mat-form-field>
+		<mat-form-field>
+			<input matInput	placeholder="Veículo" [(ngModel)]="locacao.carro" name="carro" readonly/>
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput	placeholder="Cliente" [(ngModel)]="locacao.cliente"	name="cliente" readonly/>
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput placeholder="Data Inicial" [(ngModel)]="locacao.dtIni" name="dtIni" readonly/>
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput placeholder="Data Fim" [(ngModel)]="locacao.dtFim" name="dtFim" readonly/>
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput	placeholder="Quantidade Dias" [(ngModel)]="locacao.qtdDias"	name="qtdDias" readonly/>
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput	placeholder="Multa"	[(ngModel)]="locacao.multa"	name="multa" readonly/>
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput	placeholder="Total"	[(ngModel)]="locacao.total"	name="total" readonly/>
+		</mat-form-field>
 	</form>
-	<button mat-raised-button (click)="recebeCars()" color="primary">
-	Receber
-	</button>
+	<button mat-raised-button (click)="recebeCars()" color="primary">Receber</button>
 	<button mat-raised-button (click)="cancel()">Cancelar</button>
 	<button mat-raised-button (click)="calcMulta()">Calcula Multa</button>
 </mat-card>

@@ -14,14 +14,15 @@ export class ClientsCriarComponent implements OnInit {
   @ViewChild('cform') cepFormDirective;
 
   cepForm: FormGroup;
-  clientes: Clientes ={ 
+  clientes: Clientes = { 
     nome: '',
     telefone: '',
     dataCEP: '',
     address: '',
     district: '',
     state: '',
-    city: ''
+    city: '',
+    disponivel: "Sim"
   };
   submitted = null;
   errMess: string;
@@ -59,6 +60,7 @@ export class ClientsCriarComponent implements OnInit {
       district: [''],
       city: [''],
       state: [''],
+      disponivel: ['Sim']
     });
 
     this.cepForm.valueChanges.subscribe(data => this.onValueChanged(data));
@@ -86,6 +88,7 @@ export class ClientsCriarComponent implements OnInit {
 
   onSubmit() {
     this.clientes = this.cepForm.value;
+    this.clientes.disponivel="Sim"
     console.log(this.clientes);
     this.clientsService.submitCliente(this.clientes)
       .subscribe(() => {

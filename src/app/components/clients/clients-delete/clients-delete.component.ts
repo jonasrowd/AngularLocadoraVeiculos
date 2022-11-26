@@ -11,7 +11,7 @@ import { ClientsService } from './../clients.service';
 })
 export class ClientsDeleteComponent implements OnInit {
 
-  clientes!: Clientes
+  clientes: Clientes
 
   constructor(private clientsService: ClientsService, private router: Router, private route: ActivatedRoute) { }
 
@@ -19,13 +19,12 @@ export class ClientsDeleteComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get("id");
     this.clientsService.readById(id).subscribe((clientes) => {
       this.clientes = clientes;
-      console.log(clientes);
     });
   }
 
   deleteClientes(): void {
     this.clientsService.deletaClientes(this.clientes.id).subscribe(() => {
-      this.clientsService.mostraErro("Clientesro Excluído com sucesso!");
+      this.clientsService.mostraErro("Cliente Excluído com sucesso!");
       this.router.navigate(["/clientes"]);
     });
   }

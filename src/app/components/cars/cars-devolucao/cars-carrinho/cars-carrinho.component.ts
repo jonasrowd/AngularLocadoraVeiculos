@@ -1,3 +1,5 @@
+import { Clientes } from './../../../clients/clientes.model';
+import { ClientsService } from './../../../clients/clients.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -34,9 +36,24 @@ export class CarsCarrinhoComponent implements OnInit {
     total: ""
   }
 
+  clients: Clientes = {
+    nome: '',
+    telefone: '',
+    dataCEP: '',
+    address: '',
+    district: '',
+    state: '',
+    city: '',
+    disponivel: ''
+  }
+
   displayedColumns = ['carro','cliente','qtdDias','dtIni','dtFim','total'] 
 
-  constructor(private carsService: CarsService, private locacaoService:LocacaoService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private carsService: CarsService, 
+    private locacaoService:LocacaoService, 
+    private router: Router, 
+    private route: ActivatedRoute,
+    private clientsService: ClientsService) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get("id");
@@ -44,10 +61,6 @@ export class CarsCarrinhoComponent implements OnInit {
       this.locacao = locacao;
       this.locacao.dtFim = new Date().toLocaleDateString();
     })
-
-
-
-
   }
 
   calcMulta(): void {
@@ -60,31 +73,34 @@ export class CarsCarrinhoComponent implements OnInit {
     }
 
   recebeCars() {
-
     if(this.locacao.multa == 0 || this.locacao.multa == "") {
       this.calcMulta();
     }
 
-    // this.locacao.dtFim= new Date().toLocaleDateString();
     this.locacaoService.receberLocacao(this.locacao).subscribe(() => {
       this.carsService.showMessage("Recebido com sucesso!");
-      // this.router.navigate(["/alugados"]);
     });
-
+    
     this.carsService.readById(this.locacao.idCarro).subscribe((cars) => {
       this.cars = cars;
       this.cars.disponivel="Sim";
       this.carsService.atualizaCar(this.cars).subscribe(() => {
-        // this.carsService.showMessage("Carro atualizado com sucesso!");
-        this.router.navigate(["/alugados"]);
       });
     });
 
-
+    this.clientsService.readById(this.locacao.idCliente).subscribe((clients) => {
+      this.clients = clients;
+      this.clients.disponivel="Sim";
+      this.clientsService.alterarClientes(this.clients).subscribe(() => {
+        console.log(this.clients);
+        console.log(this.cars);
+        console.log(this.locacao);
+        this.router.navigate(["/alugados"]);
+      });
+    })
   }
 
   cancel(): void {
     this.router.navigate(['/cars/devolucao'])
   }
-
 }

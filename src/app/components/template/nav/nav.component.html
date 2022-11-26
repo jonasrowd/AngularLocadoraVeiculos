@@ -5,47 +5,25 @@
 				<span class="material-icons">home</span>
 				Home
 			</button>
-			<button mat-button [matMenuTriggerFor]="clientes">
+			<button mat-button routerLink="/clientes" routerLinkActive="Active">
 				<span class="material-icons">person</span>
 				Clientes
 			</button>
-			<mat-menu #clientes="matMenu">
-				<button mat-menu-item (click)="navigateToClientsCreate()">Novo</button>
-				<button mat-menu-item routerLink="/clientes" routerLinkActive="Active">Cadastros</button>
-			</mat-menu>
-			<button mat-button [matMenuTriggerFor]="veiculos">
+			<button mat-button routerLink="/cars" routerLinkActive="Active">
 				<span class="material-icons">directions_car</span>
 				Veículos
 			</button>
-			<mat-menu #veiculos="matMenu">
-				<button mat-menu-item (click)="navigateToCarsCreate()">Novo</button>
-				<button mat-menu-item routerLink="/cars" routerLinkActive="Active">Cadastros</button>
-			</mat-menu>
-			<button mat-button [matMenuTriggerFor]="locacao">
+			<button mat-button (click)="navigateToClientsAlugados()">
 				<span class="material-icons">swap_vert</span>
 				Aluguel
 			</button>
-			<mat-menu #locacao="matMenu">
-				<button mat-menu-item (click)="navigateToClientsAluguel()">Novo</button>
-				<button mat-menu-item (click)="navigateToClientsAlugados()">Alugados</button>
-			</mat-menu>
-			<button mat-button [matMenuTriggerFor]="devolucao">
+			<button mat-button (click)="navigateToCarsDevolucao()">
 				<span class="material-icons">swap_vert</span>
 				Devolução
 			</button>
-			<mat-menu #devolucao="matMenu">
-				<button mat-menu-item (click)="navigateToCarsDevolucao()">Devolução</button>
-			</mat-menu>
-			<button mat-button (click)="impress()">
-				<span class="material-icons">description</span>
-				Relatórios
-			</button>
-			<!-- <mat-menu #relatorios="matMenu">
-				<button mat-menu-item (click)="impress()">Relatório A</button>
-			</mat-menu> -->
 		</mat-nav-list>
 	</mat-sidenav>
 	<mat-sidenav-content class="content">
-<router-outlet></router-outlet>
+		<router-outlet></router-outlet>
 	</mat-sidenav-content>
 </mat-sidenav-container>

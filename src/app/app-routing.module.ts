@@ -1,3 +1,4 @@
+import { ClientsDeleteComponent } from './components/clients/clients-delete/clients-delete.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -67,7 +68,12 @@ const routes: Routes = [
   {
     path:"clientes/alteracao/:id",
     component: ClientsAlteracaoComponent
+  },
+  {
+    path:"clientes/delete/:id",
+    component: ClientsDeleteComponent
   }
+
 ];
 
 @NgModule({

@@ -11,7 +11,7 @@ import { ClientsService } from './../clients.service';
 })
 export class ClientsAlteracaoComponent implements OnInit {
 
-  clientes!: Clientes
+  clientes: Clientes
 
   constructor(private clientsService: ClientsService, private router: Router, private route:ActivatedRoute) { }
 
