@@ -1,7 +1,30 @@
-<mat-toolbar class="header mat-elevation-z4">
+<nav class="header mat-elevation-z4">
 	<span>
 		<a routerLink="/">
-			<img class="logo" src="assets/img/logo.webp" alt="logo">
+			<img class="logo" src="assets/img/logo.png" alt="logo">
 		</a>
 	</span>
-</mat-toolbar>
+	<mat-nav-list class="nav-list">
+		<button mat-button routerLink="/" routerLinkActive="Active" color="primary">
+			<span class="material-icons">home</span>
+			Home
+		</button>
+		<button mat-button routerLink="/clientes" routerLinkActive="Active" color="primary">
+			<span class="material-icons">person</span>
+			Clientes
+		</button>
+		<button mat-button routerLink="/cars" routerLinkActive="Active" color="primary">
+			<span class="material-icons">directions_car</span>
+			Veículos
+		</button>
+		<button mat-button (click)="navigateToClientsAlugados()" color="primary">
+			<span class="material-icons">store</span>
+			Aluguel
+		</button>
+		<button mat-button (click)="navigateToCarsDevolucao()" color="primary">
+			<span class="material-icons">payments</span>
+			Devolução
+		</button>
+	</mat-nav-list>
+	<router-outlet></router-outlet>
+</nav>

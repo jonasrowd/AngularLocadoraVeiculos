@@ -1,37 +1,11 @@
-.home .title {
-	font-size: 3rem;
-	font-weight: 300;
-	line-height: 1.2;
-	text-align: center;
-	color: #285991;
-}
-
-.home .subtitle {
-	font-size: 1.1rem;
-	text-align: center;
-	color: #23476f;
-}
-
-.home {
-	border-color: #23476f;
-	border-style:solid;
-}
-
-.divider {
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
 .container{
 	text-align: center;
-	background-color: #23476f;
 }
 
-::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
-	color:aliceblue;
-	background-color: #23476f;
-}
+img {
+	max-width: 100%; 
+	display: flexbox; 
+	height: auto;
+	margin-top: 50px;
 	
-::ng-deep .mat-tab-list .mat-tab-labels {
-	background-color:#3976bb;
 }

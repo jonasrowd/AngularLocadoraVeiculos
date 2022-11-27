@@ -5,7 +5,10 @@
 	justify-content: center;
 }
 
-.footer > span {
-	font-weight: 200px;
-	font-size: 1rem;
+.icones {
+	max-width: 100%;
+	width: 40px;
+	display: flexbox; 
+	height: auto;
+	margin: 10px;
 }
