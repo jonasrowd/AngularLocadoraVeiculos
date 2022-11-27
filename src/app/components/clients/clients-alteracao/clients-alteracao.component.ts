@@ -1,3 +1,4 @@
+import { FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -11,9 +12,13 @@ import { ClientsService } from './../clients.service';
 })
 export class ClientsAlteracaoComponent implements OnInit {
 
-  clientes: Clientes
+  clientes: Clientes;
+  cepForm: FormGroup;
 
-  constructor(private clientsService: ClientsService, private router: Router, private route:ActivatedRoute) { }
+
+  constructor(private clientsService: ClientsService, 
+    private router: Router, 
+    private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get("id");
@@ -32,6 +37,23 @@ export class ClientsAlteracaoComponent implements OnInit {
 
   cancel(): void {
     this.router.navigate(['/clientes'])
+  }
+
+  searchCep() {
+    if(this.cepForm.value.dataCEP.length === 8) {
+      this.clientsService.searchCEP(this.cepForm.value.dataCEP).subscribe((response) => {
+
+        this.clientes.dataCEP = response.cep;
+        this.clientes.address = response.address; 
+        this.clientes.district = response.district;
+        this.clientes.city = response.city;
+        this.clientes.state = response.state;
+      });  
+    }
+    
+    if(this.cepForm.value.dataCEP.length === 0) {
+      this.cepForm.reset();
+    }
   }
 
 
