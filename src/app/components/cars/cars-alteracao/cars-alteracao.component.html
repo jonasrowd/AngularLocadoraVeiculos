@@ -14,7 +14,14 @@
       <input matInput placeholder="Diária (R$)" [(ngModel)]="cars.diaria" name="diaria"/>
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Categoria" [(ngModel)]="cars.categoria" name="categoria"/>
+      <select matNativeControl required [(ngModel)]="cars.categoria" name="categoria" >
+        <option label="--Selecione a Categoria--"></option>
+        <option value="Sedan">Sedan</option>
+        <option value="Camionete">Camionete</option>
+        <option value="Suv">Suv</option>
+        <option value="Hatch">Hatch</option>
+        <option value="Luxo">Luxo</option>
+      </select>
     </mat-form-field>
   </form>
   <button mat-raised-button (click)="alteraCars()" color="primary">
