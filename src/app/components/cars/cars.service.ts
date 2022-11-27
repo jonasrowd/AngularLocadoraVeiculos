@@ -11,9 +11,9 @@ import { Cars } from './cars.model';
   providedIn: "root",
 })
 export class CarsService {
-  baseCarUrl = "http://localhost:4202/carros";
-  baseCarUrlTrue = "http://localhost:4202/carros?disponivel=Sim";
-  baseCarUrlFalse = "http://localhost:4202/carros?disponivel=Não";
+  baseCarUrl = "https://my-json-server.typicode.com/jonasrowd/dbteste/carros";
+  baseCarUrlTrue = "https://my-json-server.typicode.com/jonasrowd/dbteste/carros?disponivel=Sim";
+  baseCarUrlFalse = "https://my-json-server.typicode.com/jonasrowd/dbteste/carros?disponivel=Não";
 
   constructor(private snackbar: MatSnackBar, private http: HttpClient) {}
 

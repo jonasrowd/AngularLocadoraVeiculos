@@ -11,8 +11,8 @@ export class LocacaoService {
 
   cValor:String;
 
-  baseLocacaoURL = "http://localhost:4202/locacao"
-  baseLocadosURL = "http://localhost:4202/locacao?dtFim="
+  baseLocacaoURL = "https://my-json-server.typicode.com/jonasrowd/dbteste/locacao"
+  baseLocadosURL = "https://my-json-server.typicode.com/jonasrowd/dbteste/locacao?dtFim="
 
   constructor(private http: HttpClient) { }
 

@@ -13,8 +13,8 @@ export class ClientsService {
 
   pdfMake: any;
 
-  baseClientesUrl = "http://localhost:4202/clientes";
-  baseClientesUrlTrue = "http://localhost:4202/clientes?disponivel=Sim";
+  baseClientesUrl = "https://my-json-server.typicode.com/jonasrowd/dbteste/clientes";
+  baseClientesUrlTrue = "https://my-json-server.typicode.com/jonasrowd/dbteste/clientes?disponivel=Sim";
 
   private baseURL: string = 'https://cep.awesomeapi.com.br/';
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
