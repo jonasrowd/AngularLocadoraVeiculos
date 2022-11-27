@@ -5,22 +5,22 @@
         <input matInput placeholder="Nome" [(ngModel)]="clientes.nome" name="nome"/>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Identificação" [(ngModel)]="clientes.telefone" name="identificacao"/>
+        <input matInput placeholder="Telefone" [(ngModel)]="clientes.telefone" name="telefone"/>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Tipo" [(ngModel)]="clientes.dataCEP" name="tipo"/>
+        <input matInput placeholder="Cep" [(ngModel)]="clientes.dataCEP" name="cep"/>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Habilitação" [(ngModel)]="clientes.address" name="habilitacao"/>
+        <input matInput placeholder="Endereço" [(ngModel)]="clientes.address" name="endereco"/>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Cep" [(ngModel)]="clientes.district" name="cep"/>
+        <input matInput placeholder="Bairro" [(ngModel)]="clientes.district" name="bairro"/>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Endereço" [(ngModel)]="clientes.state" name="endereco"/>
+        <input matInput placeholder="Estado" [(ngModel)]="clientes.state" name="estado"/>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Complemento" [(ngModel)]="clientes.city" name="complemento"/>
+        <input matInput placeholder="Cidade" [(ngModel)]="clientes.city" name="cidade"/>
       </mat-form-field>
     </form>
     <button mat-raised-button (click)="alteraClientes()" color="primary">Salvar</button>

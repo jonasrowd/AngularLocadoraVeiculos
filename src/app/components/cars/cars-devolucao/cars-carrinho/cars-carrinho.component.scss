@@ -7,3 +7,13 @@ button {
 .full-width-table {
 	width: 100%;
 }
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+mat-card-title {
+	text-align: center;
+	color: #0015a0;
+}

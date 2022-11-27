@@ -12,47 +12,47 @@
       <mat-form-field>
         <input
           matInput
-          placeholder="Identificação"
+          placeholder="Telefone"
           [(ngModel)]="clientes.telefone"
-          name="identificacao"
+          name="telefone"
         />
       </mat-form-field>
       <mat-form-field>
         <input matInput 
-        placeholder="Tipo" 
+        placeholder="Cep" 
         [(ngModel)]="clientes.dataCEP" 
-        name="tipo" />
-      </mat-form-field>
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Habilitação"
-          [(ngModel)]="clientes.address"
-          name="habilitacao"
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Cep"
-          [(ngModel)]="clientes.district"
-          name="cep"
-        />
+        name="cep" />
       </mat-form-field>
       <mat-form-field>
         <input
           matInput
           placeholder="Endereço"
-          [(ngModel)]="clientes.state"
+          [(ngModel)]="clientes.address"
           name="endereco"
         />
       </mat-form-field>
       <mat-form-field>
         <input
           matInput
-          placeholder="Complemento"
+          placeholder="Bairro"
+          [(ngModel)]="clientes.district"
+          name="bairro"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Estado"
+          [(ngModel)]="clientes.state"
+          name="estado"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Cidade"
           [(ngModel)]="clientes.city"
-          name="complemento"
+          name="cidade"
         />
       </mat-form-field>
     </form>
