@@ -13,8 +13,8 @@ export class ClientsService {
 
   pdfMake: any;
 
-  baseClientesUrl = "https://my-json-server.typicode.com/jonasrowd/dbteste/clientes";
-  baseClientesUrlTrue = "https://my-json-server.typicode.com/jonasrowd/dbteste/clientes?disponivel=Sim";
+  baseClientesUrl = "https://locadoraangularrestapi.herokuapp.com/clientes";
+  baseClientesUrlTrue = "https://locadoraangularrestapi.herokuapp.com/clientes?disponivel=Sim";
 
   private baseURL: string = 'https://cep.awesomeapi.com.br/';
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
