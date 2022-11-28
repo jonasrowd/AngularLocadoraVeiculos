@@ -11,8 +11,8 @@ export class LocacaoService {
 
   cValor:String;
 
-  baseLocacaoURL = "https://my-json-server.typicode.com/jonasrowd/dbteste/locacao"
-  baseLocadosURL = "https://my-json-server.typicode.com/jonasrowd/dbteste/locacao?dtFim="
+  baseLocacaoURL = "https://locadoraangularrestapi.herokuapp.com/locacao"
+  baseLocadosURL = "https://locadoraangularrestapi.herokuapp.com/locacao?dtFim="
 
   constructor(private http: HttpClient) { }
 
