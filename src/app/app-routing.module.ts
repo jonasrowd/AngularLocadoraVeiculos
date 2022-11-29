@@ -11,7 +11,6 @@ import { CarsDevolucaoComponent } from './components/cars/cars-devolucao/cars-de
 import { ClientsAlteracaoComponent } from './components/clients/clients-alteracao/clients-alteracao.component';
 import { ClientsCriarComponent } from './components/clients/clients-criar/clients-criar.component';
 import { LocacaoComponent } from './components/locacao/locacao.component';
-import { RelatoriosComponent } from './components/relatorios/relatorios.component';
 import { CarsComponent } from './views/cars/cars.component';
 import { ClientComponent } from './views/client/client.component';
 import { HomeComponent } from './views/home/home.component';
@@ -60,10 +59,6 @@ const routes: Routes = [
   {
     path: "alugados",
     component: AlugadosComponent
-  },
-  {
-    path: "relatorios",
-    component: RelatoriosComponent
   },
   {
     path:"clientes/alteracao/:id",
