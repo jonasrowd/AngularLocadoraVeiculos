@@ -36,7 +36,6 @@ import { ClientsCriarComponent } from './components/clients/clients-criar/client
 import { ClientsDeleteComponent } from './components/clients/clients-delete/clients-delete.component';
 import { ClientsReadComponent } from './components/clients/clients-read/clients-read.component';
 import { LocacaoComponent } from './components/locacao/locacao.component';
-import { RelatoriosComponent } from './components/relatorios/relatorios.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { HeaderComponent } from './components/template/header/header.component';
 import { NavComponent } from './components/template/nav/nav.component';
@@ -68,7 +67,6 @@ registerLocaleData(localePt);
     ClientsCriarComponent,
     LocacaoComponent,
     AlugadosComponent,
-    RelatoriosComponent,
     ClientsAlteracaoComponent,
     ClientsDeleteComponent
   ],
